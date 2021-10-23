@@ -1,0 +1,14 @@
+#footer {
+  text-align: center;
+  padding-top: 35px;
+  background: #f2f2f2;
+  color: #adadb5;
+  .title {
+    color: #253444;
+  }
+  .delimiter {
+    border-bottom: 1px solid #d5d5d5;
+    margin: 35px 0;
+  }
+  @media ( max-width: 320px ) { font-size: 12px}
+}
