@@ -24,32 +24,6 @@ html, body {
   }
 }
 
-.footer-menu {
-  padding-left: 0;
-  padding-right: 0;
-  .footer-link {
-    margin-bottom: 16px;
-    a {
-      color: #6f6f6f;
-      text-decoration: underline;
-    }
-  }
-  .vertical-delimiter {
-    padding: 0;
-    width: 2px;
-    position: relative;
-    &:after {
-      top: 0;
-      left: 0;
-      width: 2px;
-      content: '';
-      height: 100%;
-      display: block;
-      position: absolute;
-      background: #d5d5d5;
-    }
-  }
-}
 p {
   margin: 0 0 10px;
 }

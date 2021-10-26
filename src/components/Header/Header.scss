@@ -1,0 +1,15 @@
+#header {
+  header {
+    background-color: rgb(38, 50, 56);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #navigation {
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+  #logoImage {
+    padding: 0 20px;
+  }
+}

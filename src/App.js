@@ -3,7 +3,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './App.scss';
-import Viewer from './pages/Viewer/Viewer';
+import Viewer from './pages/Viewer';
 
 function App() {
     let styles = ['App']

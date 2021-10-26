@@ -3,14 +3,13 @@ import './Header.scss';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Grid } from '@mui/material';
 import { Menu } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import config from '../../config';
 
 export default function Header() {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -25,8 +24,11 @@ export default function Header() {
     return(
         <Box sx={{ flexGrow: 1 }} id="header">
             <AppBar position="static" style={{backgroundColor: '#263238'}}>
-                <Toolbar style={{justifyContent: 'space-between'}}>
-                    <img alt="home" height="24px" src="/flask_white_icon.svg" />
+                <a href={config.flaskUrl}>
+                    <img alt="home" height="24px" src="/flask_white_icon.svg" id="logoImage"/>
+                </a>
+
+                <Toolbar id="navigation">
                     <Button color="inherit"> View current CRF </Button>
 
                     <Button
@@ -54,16 +56,18 @@ export default function Header() {
                         <MenuItem onClick={handleClose}>Hebrew</MenuItem>
                     </Menu>
 
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
+
                 </Toolbar>
+                <IconButton
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    sx={{ mr: 2 }}
+                    id="menuButton"
+                >
+                    <MenuIcon />
+                </IconButton>
             </AppBar>
         </Box>
     )

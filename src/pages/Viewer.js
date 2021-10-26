@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from '@mui/material';
 
-import BaseLayout from '../../components/BaseLayout';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import BaseLayout from '../components/BaseLayout';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 
 export default function Viewer() {
