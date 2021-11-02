@@ -7,9 +7,13 @@
   }
   #navigation {
     flex-grow: 1;
-    justify-content: flex-end;
+    //justify-content: flex-end;
+    justify-content: space-around;
   }
   #logoImage {
     padding: 0 20px;
+  }
+  AppBar {
+    background: #263238;
   }
 }

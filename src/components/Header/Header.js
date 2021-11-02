@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Menu } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { NavLink } from 'react-router-dom';
 import config from '../../config';
 
 export default function Header() {
@@ -23,13 +24,14 @@ export default function Header() {
 
     return(
         <Box sx={{ flexGrow: 1 }} id="header">
-            <AppBar position="static" style={{backgroundColor: '#263238'}}>
+            <AppBar position="static">
                 <a href={config.flaskUrl}>
                     <img alt="home" height="24px" src="/flask_white_icon.svg" id="logoImage"/>
                 </a>
 
                 <Toolbar id="navigation">
-                    <Button color="inherit"> View current CRF </Button>
+                    <NavLink to={'/'}> View current CRF </NavLink>
+                    <NavLink to={'/log'}> Log </NavLink>
 
                     <Button
                         id="basic-button"

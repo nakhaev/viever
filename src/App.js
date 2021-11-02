@@ -3,7 +3,10 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './App.scss';
+import { Switch, Route } from 'react-router-dom';
 import Viewer from './pages/Viewer';
+import Log from './pages/Log'
+import IncorrectLink from './pages/IncorrectLink';
 
 function App() {
     let styles = ['App']
@@ -16,7 +19,11 @@ function App() {
 
     return (
         <div className={styles.join(' ')}>
-            <Viewer/>
+            <Switch>
+                <Route path={'/'} exact component={Viewer} />
+                <Route path={'/log'} exact component={Log} />
+                <Route component={IncorrectLink} />
+            </Switch>
         </div>
     );
 }
