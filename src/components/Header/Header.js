@@ -24,7 +24,7 @@ export default function Header() {
 
     return(
         <Box sx={{ flexGrow: 1 }} id="header">
-            <AppBar position="static">
+            <AppBar position="static" id="app-bar">
                 <a href={config.flaskUrl}>
                     <img alt="home" height="24px" src="/flask_white_icon.svg" id="logoImage"/>
                 </a>
