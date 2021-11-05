@@ -1,0 +1,721 @@
+{
+    "rtl": false,
+    "name": {
+        "ENGLISH": "Branching Logic Test",
+        "HEBREW": "Branching Logic Test"
+    },
+    "rules": [],
+    "status": "Started",
+    "subject": {
+        "subjectId": "MotiTest1-13",
+        "fullName": " ",
+        "firstName": "",
+        "lastName": "",
+        "phone": "52734324177414",
+        "email": "rivkygrin123@gmail.com",
+        "study_id": 167680,
+        "user_id": null,
+        "site_name": "MotiTest1",
+        "site_id": "168049",
+        "editor_name": null,
+        "creator_name": "CRC test 1 CRC",
+        "subject_id": 16096022,
+        "update_id": 8998091,
+        "status_id": 1,
+        "date_updated": "2021-08-30T11:28:38.533Z",
+        "date_created": "2021-08-01T14:01:43.449Z",
+        "epro_events_generated_by_periods": [],
+        "epro_events_generated": false,
+        "test": null,
+        "metadata": {
+            "enabled": true
+        },
+        "tokens": [
+            "6106a9735e5e383d9b6eacbc",
+            "6106a9795e5e383d9b6eacc6",
+            "6106aa3e5e5e383d9b6eacd0",
+            "6106aa435e5e383d9b6eacda",
+            "612c81e6f71fab53440443c0",
+            "613069b8e2656b359d2611c8",
+            "613069b8e2656b359d2611d3",
+            "613069b9e2656b359d2611dd",
+            "613069c6e2656b359d2611e6",
+            "61306d20e2656b359d261202",
+            "6130d85fe2656b359d26126f",
+            "6183eb44e49a541906a09feb"
+        ],
+        "language": "en",
+        "id": "6106a9475e5e383d9b6eacae"
+    },
+    "metadata": {
+        "eventId": "6183eb0a966f9e18e3425ccf",
+        "description": {
+            "ENGLISH": "Branching_Logic_Test",
+            "HEBREW": "Branching_Logic_Test"
+        },
+        "scheduled_date": "2021-11-04T14:16:36.547Z",
+        "lastEdited": "2021-11-04T14:25:54.550Z"
+    },
+    "CRFs": [
+        {
+            "name": {
+                "HEBREW": "Third",
+                "ENGLISH": "Third"
+            },
+            "description": {
+                "HEBREW": "",
+                "ENGLISH": ""
+            },
+            "study_id": 16096014,
+            "oc_oid": "CRF_THIRD_C1TFN",
+            "variable": "CRF_THIRD_FVF6L",
+            "hide_fields": true,
+            "flask_crf_version": "1.0",
+            "layout_columns": 0,
+            "queries_on": false,
+            "layout_type": 0,
+            "editor_name": "Moti Rot",
+            "creator_name": "Moti Rot",
+            "owner_id": null,
+            "status_id": null,
+            "item_group_id": null,
+            "crf_version_id": null,
+            "crf_id": null,
+            "date_updated": "2021-11-04T14:14:41.416Z",
+            "date_created": "2021-11-04T14:13:20.499Z",
+            "sections": [
+                {
+                    "name": {
+                        "ENGLISH": "Third",
+                        "HEBREW": "Third"
+                    },
+                    "description": {
+                        "ENGLISH": "",
+                        "HEBREW": ""
+                    },
+                    "crfId": "6183ea80966f9e18e3425cab",
+                    "study_id": 16096014,
+                    "flask_crf_version": "1.0",
+                    "editor_name": "Moti Rot",
+                    "creator_name": "Moti Rot",
+                    "owner_id": null,
+                    "status_id": null,
+                    "crf_version_id": null,
+                    "crf_id": null,
+                    "section_id": null,
+                    "date_updated": "2021-11-04T14:13:25.133Z",
+                    "date_created": "2021-11-04T14:13:25.133Z",
+                    "order": 0,
+                    "id": "6183ead1966f9e18e3425cb1",
+                    "items": [
+                        {
+                            "type": "DATE",
+                            "title": {
+                                "ENGLISH": "Date",
+                                "HEBREW": ""
+                            },
+                            "label": {
+                                "ENGLISH": "",
+                                "HEBREW": ""
+                            },
+                            "variable": "DATE1611",
+                            "crfId": "6183ea80966f9e18e3425cab",
+                            "study_id": 16096014,
+                            "sectionId": "6183ead1966f9e18e3425cb1",
+                            "oc_oid": "ITEM_T_DATE_IHS9Q",
+                            "allow_wrap": false,
+                            "label_word_wrap": false,
+                            "title_word_wrap": false,
+                            "label_font_size": 16,
+                            "title_font_size": 27,
+                            "flask_crf_version": "1.0",
+                            "editor_name": "Moti Rot",
+                            "creator_name": "Moti Rot",
+                            "owner_id": null,
+                            "status_id": null,
+                            "response_set_id": null,
+                            "section_id": null,
+                            "crf_id": null,
+                            "item_form_metadata_id": null,
+                            "item_group_metadata_id": null,
+                            "item_id": null,
+                            "date_updated": "2021-11-04T12:13:00.000Z",
+                            "date_created": "2021-11-04T12:13:00.000Z",
+                            "defaultValue": [
+                                null
+                            ],
+                            "order": 0,
+                            "adds": {
+                                "help": {
+                                    "ENGLISH": "",
+                                    "HEBREW": ""
+                                },
+                                "placeholder": {
+                                    "ENGLISH": "",
+                                    "HEBREW": ""
+                                },
+                                "pattern": null,
+                                "required": false,
+                                "disabled": false,
+                                "branchingLogic": "",
+                                "variableAssignment": "",
+                                "assert": false,
+                                "assertionText": {
+                                    "ENGLISH": "",
+                                    "HEBREW": ""
+                                }
+                            },
+                            "options": [],
+                            "id": "6183ead1966f9e18e3425cb3",
+                            "formName": "Third",
+                            "value": [
+                                null
+                            ],
+                            "queries": [],
+                            "value_created": "",
+                            "value_updated": "",
+                            "localStringValue": "",
+                            "manual_entry": true
+                        },
+                        {
+                            "type": "TIME",
+                            "title": {
+                                "ENGLISH": "Time",
+                                "HEBREW": ""
+                            },
+                            "label": {
+                                "ENGLISH": "",
+                                "HEBREW": ""
+                            },
+                            "variable": "TIME1611",
+                            "crfId": "6183ea80966f9e18e3425cab",
+                            "study_id": 16096014,
+                            "sectionId": "6183ead1966f9e18e3425cb1",
+                            "oc_oid": "ITEM_T_TIME_HO41P",
+                            "allow_wrap": false,
+                            "label_word_wrap": false,
+                            "title_word_wrap": false,
+                            "label_font_size": 16,
+                            "title_font_size": 27,
+                            "flask_crf_version": "1.0",
+                            "editor_name": "Moti Rot",
+                            "creator_name": "Moti Rot",
+                            "owner_id": null,
+                            "status_id": null,
+                            "response_set_id": null,
+                            "section_id": null,
+                            "crf_id": null,
+                            "item_form_metadata_id": null,
+                            "item_group_metadata_id": null,
+                            "item_id": null,
+                            "date_updated": "2021-11-04T12:13:00.000Z",
+                            "date_created": "2021-11-04T12:13:00.000Z",
+                            "defaultValue": [
+                                null
+                            ],
+                            "order": 1,
+                            "adds": {
+                                "help": {
+                                    "ENGLISH": "",
+                                    "HEBREW": ""
+                                },
+                                "placeholder": {
+                                    "ENGLISH": "",
+                                    "HEBREW": ""
+                                },
+                                "pattern": null,
+                                "required": false,
+                                "disabled": false,
+                                "branchingLogic": "",
+                                "variableAssignment": "",
+                                "assert": false,
+                                "assertionText": {
+                                    "ENGLISH": "",
+                                    "HEBREW": ""
+                                }
+                            },
+                            "options": [],
+                            "id": "6183ead1966f9e18e3425cb5",
+                            "formName": "Third",
+                            "value": [
+                                null
+                            ],
+                            "queries": [],
+                            "value_created": "",
+                            "value_updated": "",
+                            "localStringValue": "",
+                            "manual_entry": true
+                        }
+                    ]
+                }
+            ],
+            "id": "6183ea80966f9e18e3425cab",
+            "dataId": "00232291F1",
+            "order": 2,
+            "omt": true,
+            "active": true,
+            "repeatIndex": 1,
+            "externalId": null,
+            "metadata": {
+                "data_record_creator": null,
+                "data_record_creator_id": null,
+                "data_record_editor": null,
+                "data_record_editor_id": null,
+                "data_record_created": null,
+                "data_record_updated": null
+            },
+            "completed": false,
+            "crfStatus": "Not started",
+            "last_edited": ""
+        },
+        {
+            "name": {
+                "HEBREW": "Second",
+                "ENGLISH": "Second"
+            },
+            "description": {
+                "HEBREW": "",
+                "ENGLISH": ""
+            },
+            "study_id": 16096014,
+            "oc_oid": "CRF_SECOND_S8CA6",
+            "variable": "CRF_SECOND_X7WLX",
+            "hide_fields": true,
+            "flask_crf_version": "1.0",
+            "layout_columns": 0,
+            "queries_on": false,
+            "layout_type": 0,
+            "editor_name": "Moti Rot",
+            "creator_name": "Moti Rot",
+            "owner_id": null,
+            "status_id": null,
+            "item_group_id": null,
+            "crf_version_id": null,
+            "crf_id": null,
+            "date_updated": "2021-11-04T14:22:39.486Z",
+            "date_created": "2021-11-04T14:12:12.916Z",
+            "sections": [
+                {
+                    "name": {
+                        "HEBREW": "Second",
+                        "ENGLISH": "Second"
+                    },
+                    "description": {
+                        "HEBREW": "",
+                        "ENGLISH": ""
+                    },
+                    "crfId": "6183ea3c966f9e18e3425c8b",
+                    "study_id": 16096014,
+                    "flask_crf_version": "1.0",
+                    "editor_name": "Moti Rot",
+                    "creator_name": "Moti Rot",
+                    "owner_id": null,
+                    "status_id": null,
+                    "crf_version_id": null,
+                    "crf_id": null,
+                    "section_id": null,
+                    "date_updated": "2021-11-04T14:22:39.469Z",
+                    "date_created": "2021-11-04T14:12:17.381Z",
+                    "order": 0,
+                    "id": "6183ea6f966f9e18e3425c91",
+                    "items": [
+                        {
+                            "type": "RADIO",
+                            "title": {
+                                "HEBREW": "",
+                                "ENGLISH": "Radio"
+                            },
+                            "label": {
+                                "HEBREW": "",
+                                "ENGLISH": ""
+                            },
+                            "variable": "RADIO1611",
+                            "crfId": "6183ea3c966f9e18e3425c8b",
+                            "study_id": 16096014,
+                            "sectionId": "6183ea6f966f9e18e3425c91",
+                            "oc_oid": "ITEM_S_RADIO_Q2KCK",
+                            "allow_wrap": false,
+                            "label_word_wrap": false,
+                            "title_word_wrap": false,
+                            "label_font_size": 16,
+                            "title_font_size": 27,
+                            "flask_crf_version": "1.0",
+                            "editor_name": "Moti Rot",
+                            "creator_name": "Moti Rot",
+                            "owner_id": null,
+                            "status_id": null,
+                            "response_set_id": null,
+                            "section_id": null,
+                            "crf_id": null,
+                            "item_form_metadata_id": null,
+                            "item_group_metadata_id": null,
+                            "item_id": null,
+                            "date_updated": "2021-11-04T14:22:39.472Z",
+                            "date_created": "2021-11-04T12:12:00.000Z",
+                            "defaultValue": [],
+                            "order": 0,
+                            "adds": {
+                                "assertionText": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                },
+                                "assert": false,
+                                "variableAssignment": "",
+                                "branchingLogic": "",
+                                "disabled": false,
+                                "required": false,
+                                "pattern": null,
+                                "placeholder": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                },
+                                "help": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                }
+                            },
+                            "options": [
+                                {
+                                    "isNotUnique": false,
+                                    "value": 0,
+                                    "title": {
+                                        "HEBREW": "First",
+                                        "ENGLISH": "First"
+                                    },
+                                    "uid": "3brd8h"
+                                },
+                                {
+                                    "isNotUnique": false,
+                                    "value": 1,
+                                    "title": {
+                                        "HEBREW": "Second",
+                                        "ENGLISH": "Second"
+                                    },
+                                    "uid": "q66mvo"
+                                }
+                            ],
+                            "id": "6183ea6f966f9e18e3425c93",
+                            "formName": "Second",
+                            "value": [],
+                            "queries": [],
+                            "value_created": "",
+                            "value_updated": "",
+                            "localStringValue": "",
+                            "manual_entry": true
+                        },
+                        {
+                            "type": "TEXTAREA",
+                            "title": {
+                                "HEBREW": "",
+                                "ENGLISH": "Textarea"
+                            },
+                            "label": {
+                                "HEBREW": "",
+                                "ENGLISH": ""
+                            },
+                            "variable": "TEXTAREA1611",
+                            "crfId": "6183ea3c966f9e18e3425c8b",
+                            "study_id": 16096014,
+                            "sectionId": "6183ea6f966f9e18e3425c91",
+                            "oc_oid": "ITEM_S_TEXTAREA_MMPAP",
+                            "allow_wrap": false,
+                            "label_word_wrap": false,
+                            "title_word_wrap": false,
+                            "label_font_size": 16,
+                            "title_font_size": 27,
+                            "flask_crf_version": "1.0",
+                            "editor_name": "Moti Rot",
+                            "creator_name": "Moti Rot",
+                            "owner_id": null,
+                            "status_id": null,
+                            "response_set_id": null,
+                            "section_id": null,
+                            "crf_id": null,
+                            "item_form_metadata_id": null,
+                            "item_group_metadata_id": null,
+                            "item_id": null,
+                            "date_updated": "2021-11-04T14:22:39.477Z",
+                            "date_created": "2021-11-04T12:12:00.000Z",
+                            "defaultValue": [
+                                null
+                            ],
+                            "order": 1,
+                            "adds": {
+                                "maxlength": 100,
+                                "rows": 3,
+                                "assertionText": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                },
+                                "assert": false,
+                                "variableAssignment": "",
+                                "branchingLogic": "$AGE1611 == '55'",
+                                "disabled": false,
+                                "required": false,
+                                "pattern": null,
+                                "placeholder": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                },
+                                "help": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                }
+                            },
+                            "options": [],
+                            "id": "6183ea6f966f9e18e3425c95",
+                            "formName": "Second",
+                            "value": [
+                                null
+                            ],
+                            "queries": [],
+                            "value_created": "",
+                            "value_updated": "",
+                            "localStringValue": "",
+                            "manual_entry": true
+                        }
+                    ]
+                }
+            ],
+            "id": "6183ea3c966f9e18e3425c8b",
+            "dataId": "1C1203CE24",
+            "order": 1,
+            "omt": true,
+            "active": true,
+            "repeatIndex": 1,
+            "externalId": null,
+            "metadata": {
+                "data_record_creator": null,
+                "data_record_creator_id": null,
+                "data_record_editor": null,
+                "data_record_editor_id": null,
+                "data_record_created": null,
+                "data_record_updated": null
+            },
+            "completed": false,
+            "crfStatus": "Not started",
+            "last_edited": ""
+        },
+        {
+            "name": {
+                "HEBREW": "First",
+                "ENGLISH": "First"
+            },
+            "description": {
+                "HEBREW": "",
+                "ENGLISH": ""
+            },
+            "study_id": 16096014,
+            "oc_oid": "CRF_FIRST_7KDYP",
+            "variable": "CRF_FIRST_RVYDS",
+            "hide_fields": true,
+            "flask_crf_version": "1.0",
+            "layout_columns": 0,
+            "queries_on": false,
+            "layout_type": 0,
+            "editor_name": "Moti Rot",
+            "creator_name": "Moti Rot",
+            "owner_id": null,
+            "status_id": null,
+            "item_group_id": null,
+            "crf_version_id": null,
+            "crf_id": null,
+            "date_updated": "2021-11-04T14:21:06.515Z",
+            "date_created": "2021-11-04T14:11:09.197Z",
+            "sections": [
+                {
+                    "name": {
+                        "HEBREW": "First",
+                        "ENGLISH": "First"
+                    },
+                    "description": {
+                        "HEBREW": "",
+                        "ENGLISH": ""
+                    },
+                    "crfId": "6183e9fd966f9e18e3425c6b",
+                    "study_id": 16096014,
+                    "flask_crf_version": "1.0",
+                    "editor_name": "Moti Rot",
+                    "creator_name": "Moti Rot",
+                    "owner_id": null,
+                    "status_id": null,
+                    "crf_version_id": null,
+                    "crf_id": null,
+                    "section_id": null,
+                    "date_updated": "2021-11-04T14:21:06.498Z",
+                    "date_created": "2021-11-04T14:11:15.591Z",
+                    "order": 0,
+                    "id": "6183ea30966f9e18e3425c71",
+                    "items": [
+                        {
+                            "type": "INPUT",
+                            "title": {
+                                "HEBREW": "",
+                                "ENGLISH": "Input"
+                            },
+                            "label": {
+                                "HEBREW": "",
+                                "ENGLISH": ""
+                            },
+                            "variable": "INPUT1611",
+                            "crfId": "6183e9fd966f9e18e3425c6b",
+                            "study_id": 16096014,
+                            "sectionId": "6183ea30966f9e18e3425c71",
+                            "oc_oid": "ITEM_F_INPUT_2NGN5",
+                            "allow_wrap": false,
+                            "label_word_wrap": false,
+                            "title_word_wrap": false,
+                            "label_font_size": 16,
+                            "title_font_size": 27,
+                            "flask_crf_version": "1.0",
+                            "editor_name": "Moti Rot",
+                            "creator_name": "Moti Rot",
+                            "owner_id": null,
+                            "status_id": null,
+                            "response_set_id": null,
+                            "section_id": null,
+                            "crf_id": null,
+                            "item_form_metadata_id": null,
+                            "item_group_metadata_id": null,
+                            "item_id": null,
+                            "date_updated": "2021-11-04T14:21:06.501Z",
+                            "date_created": "2021-11-04T12:11:00.000Z",
+                            "defaultValue": [],
+                            "order": 0,
+                            "adds": {
+                                "unique": false,
+                                "assertionText": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                },
+                                "assert": false,
+                                "variableAssignment": "",
+                                "branchingLogic": "",
+                                "disabled": false,
+                                "required": false,
+                                "pattern": ".*",
+                                "placeholder": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                },
+                                "help": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                }
+                            },
+                            "options": [],
+                            "id": "6183ea30966f9e18e3425c73",
+                            "formName": "First",
+                            "value": [
+                                "test"
+                            ],
+                            "queries": [],
+                            "value_created": "2021-11-04T14:25:06.823Z",
+                            "value_updated": "2021-11-04T14:25:54.539Z",
+                            "localStringValue": null,
+                            "manual_entry": true
+                        },
+                        {
+                            "type": "NUMBER",
+                            "title": {
+                                "HEBREW": "",
+                                "ENGLISH": "Age"
+                            },
+                            "label": {
+                                "HEBREW": "",
+                                "ENGLISH": ""
+                            },
+                            "variable": "AGE1611",
+                            "crfId": "6183e9fd966f9e18e3425c6b",
+                            "study_id": 16096014,
+                            "sectionId": "6183ea30966f9e18e3425c71",
+                            "oc_oid": "ITEM_F_AGE_CAWD1",
+                            "allow_wrap": false,
+                            "label_word_wrap": false,
+                            "title_word_wrap": false,
+                            "label_font_size": 16,
+                            "title_font_size": 27,
+                            "flask_crf_version": "1.0",
+                            "editor_name": "Moti Rot",
+                            "creator_name": "Moti Rot",
+                            "owner_id": null,
+                            "status_id": null,
+                            "response_set_id": null,
+                            "section_id": null,
+                            "crf_id": null,
+                            "item_form_metadata_id": null,
+                            "item_group_metadata_id": null,
+                            "item_id": null,
+                            "date_updated": "2021-11-04T14:21:06.508Z",
+                            "date_created": "2021-11-04T12:11:00.000Z",
+                            "defaultValue": [
+                                null
+                            ],
+                            "order": 1,
+                            "adds": {
+                                "maxlength": 10000,
+                                "minlength": 0,
+                                "min": -10000,
+                                "max": 10000,
+                                "step": 1,
+                                "assertionText": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                },
+                                "assert": false,
+                                "variableAssignment": "",
+                                "branchingLogic": "$INPUT1611 == 'test'",
+                                "disabled": false,
+                                "required": false,
+                                "pattern": null,
+                                "placeholder": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                },
+                                "help": {
+                                    "HEBREW": "",
+                                    "ENGLISH": ""
+                                }
+                            },
+                            "options": [],
+                            "id": "6183ea30966f9e18e3425c75",
+                            "formName": "First",
+                            "value": [
+                                552
+                            ],
+                            "queries": [],
+                            "value_created": "2021-11-04T14:25:06.840Z",
+                            "value_updated": "2021-11-04T14:25:54.548Z",
+                            "localStringValue": null,
+                            "manual_entry": true
+                        }
+                    ]
+                }
+            ],
+            "id": "6183e9fd966f9e18e3425c6b",
+            "dataId": "15AC2D313D",
+            "order": 0,
+            "omt": true,
+            "active": true,
+            "repeatIndex": 1,
+            "externalId": null,
+            "metadata": {
+                "data_record_creator": "Moti Rot",
+                "data_record_creator_id": "167676",
+                "data_record_editor": "Moti Rot",
+                "data_record_editor_id": "167676",
+                "data_record_created": "2021-11-04T14:25:06.823Z",
+                "data_record_updated": "2021-11-04T14:25:54.539Z"
+            },
+            "completed": false,
+            "crfStatus": "Started",
+            "last_edited": "2021-11-04T14:25:54.550Z"
+        }
+    ],
+    "study_id": 16096014,
+    "linkId": "6183eb44e49a541906a09feb",
+    "parentLink": "",
+    "parentToken": "",
+    "studyName": "Test2",
+    "siteName": "MotiTest1"
+}

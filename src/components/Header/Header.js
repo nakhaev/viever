@@ -30,10 +30,11 @@ export default function Header() {
                 </a>
 
                 <Toolbar id="navigation">
-                    <NavLink to={'/'}> View current CRF </NavLink>
-                    <NavLink to={'/log'}> Log </NavLink>
+                    <NavLink to={'/'} exact className="nav-item"> View current CRF </NavLink>
+                    <NavLink to={'/log'} exact className="nav-item"> Log </NavLink>
 
                     <Button
+                        className="nav-item"
                         id="basic-button"
                         aria-controls="basic-menu"
                         aria-haspopup="true"
