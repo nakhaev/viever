@@ -6,16 +6,23 @@ import './App.scss';
 import { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import { storage } from './services/storage.service';
 
 import Viewer from './pages/Viewer';
 import Log from './pages/Log'
 import IncorrectLink from './pages/IncorrectLink';
-import {getToken} from './services/auth.service';
+import { authorization } from './services/auth.service';
 
 function App(props) {
 
     useEffect(() => {
-        getToken(props);
+        authorization(props)
+            .then(success => {
+                storage.set('user', success);
+            })
+            .catch(error => {
+                console.log('[authorization]', error);
+            });
     });
 
     let styles = ['App']
@@ -29,9 +36,9 @@ function App(props) {
     return (
         <div className={styles.join(' ')}>
             <Switch>
-                {/*<Route path={'/:id'} exact component={Viewer} />*/}
-                <Route path={'/'} exact component={Viewer} />
+                <Route path={'/'} exact component={IncorrectLink} />
                 <Route path={'/log'} exact component={Log} />
+                <Route path={'/:id'} exact component={Viewer} />
                 <Route component={IncorrectLink} />
             </Switch>
         </div>
