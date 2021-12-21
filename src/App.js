@@ -4,26 +4,37 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './App.scss';
 import { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import {Switch, Route, useHistory} from 'react-router-dom';
 import { storage } from './services/storage.service';
+import {getLanguages, setUser} from './appSlice';
 
-import Viewer from './pages/Viewer';
+import Viewer from './pages/Viewer/Viewer';
 import Log from './pages/Log'
 import IncorrectLink from './pages/IncorrectLink';
 import { authorization } from './services/auth.service';
+import {useDispatch, useSelector} from "react-redux";
 
-function App(props) {
-
+function App() {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const { linkData } = useSelector(state => state.viewer);
     useEffect(() => {
-        authorization(props)
+        authorization(history)
             .then(success => {
                 storage.set('user', success);
+                dispatch(setUser(success));
             })
             .catch(error => {
-                console.log('[authorization]', error);
+                storage.remove('user');
+                console.log('[Authorization]', error);
             });
     });
+
+    useEffect(() => {
+        if(linkData && linkData.study_id) {
+            dispatch(getLanguages(linkData.study_id));
+        }
+    }, [linkData])
 
     let styles = ['App']
 
@@ -45,4 +56,4 @@ function App(props) {
     );
 }
 
-export default withRouter(App);
+export default App;

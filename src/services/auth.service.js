@@ -1,5 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
+import {storage} from "./storage.service";
 
 import config from '../config';
 
@@ -20,25 +21,35 @@ async function getSelf(token) {
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 
-export async function authorization(data) {
-    const {location, history} = data;
+export async function authorization(history) {
+    const {location} = history;
     let user = null;
-    if(location && location.search && location.search !== '') {
-        let params = qs.parse(location.search, { ignoreQueryPrefix: true });
-        if(params.token) {
-            const response = await getSelf(params.token);
-            user = response.data;
-            user.token = params.token;
-            const search = { ...params};
-            delete search.token;
-            if(history) {
-                history.push({
-                    pathname: location.pathname,
-                    search: qs.stringify(search)
-                })
-            }
+    const storedUser = storage.get('user');
+    let params = {};
+
+    if(storedUser) {
+        params.token = storedUser.token;
+    } else if(location && location.search && location.search !== '') {
+        params = qs.parse(location.search, { ignoreQueryPrefix: true });
+    } else {
+        return user;
+    }
+
+    if(params.token) {
+
+        const response = await getSelf(params.token);
+        user = response.data;
+        user.token = params.token;
+        const search = { ...params};
+        delete search.token;
+        if(history) {
+            history.push({
+                pathname: location.pathname,
+                search: qs.stringify(search)
+            })
         }
     }
+
     return user;
 }
 

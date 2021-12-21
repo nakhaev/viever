@@ -1,0 +1,10 @@
+[
+  {
+    "label": "View current CRF",
+    "path": "/"
+  },
+  {
+    "label": "Log",
+    "path": "/log"
+  }
+]

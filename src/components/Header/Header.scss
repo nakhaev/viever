@@ -5,23 +5,6 @@
     justify-content: space-between;
     align-items: center;
   }
-  #navigation {
-    flex-grow: 1;
-    //justify-content: flex-end;
-    justify-content: space-around;
-    .nav-item {
-      display: flex;
-      text-decoration: none;
-      color: #fff;
-      text-transform: none;
-      padding: 21px;
-      font-size: 14px;
-      line-height: inherit;
-      &.active {
-        background: rgba(255, 255, 255, .1);
-      }
-    }
-  }
   #logoImage {
     padding: 0 20px;
   }
