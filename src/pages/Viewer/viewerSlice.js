@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {getEventData} from '../../services/api.service';
 import _ from 'lodash';
+import {toastr} from 'react-redux-toastr'
 
 const initialState = {
     linkData: null,
@@ -31,9 +32,14 @@ const viewerSlice = createSlice({
 });
 
 export const getLinkData = (pathname) => async (dispatch) => {
-    const data = await getEventData(pathname);
-    data.CRFs = _.sortBy(data.CRFs, ['order']);
-    dispatch(setLinkData(data));
+    try {
+        const data = await getEventData(pathname);
+        data.CRFs = _.sortBy(data.CRFs, ['order']);
+        dispatch(setLinkData(data));
+        toastr.success('Error', 'Data was received successfully');
+    } catch(error) {
+        toastr.error('Error', error.message);
+    }
 }
 
 export const setCurrentCrf  = (index) => async (dispatch, getState) => {
