@@ -6,25 +6,14 @@ import Footer from '../../components/Footer/Footer';
 
 import InfoString from '../../components/InfoString/InfoString';
 import FlaskCRF from '../../components/FlaskCRF/FlaskCRF';
-import {getLinkData, setCurrentCrf, setCurrentIndex} from './viewerSlice';
+import {setCurrentCrf, setCurrentIndex} from './viewerSlice';
 import {useDispatch, useSelector} from 'react-redux';
-import {useHistory} from 'react-router-dom';
+import Preloader from '../../components/Preloader/Preloader';
 
 export default function Viewer() {
     const dispatch = useDispatch();
-    const history = useHistory();
-    const {linkData, currentCrf, currentIndex} = useSelector(state => state.viewer)
-
-    // http://localhost:3000/kwthZZrCyseV?mode=edit
-    // http://localhost:3000/FED_MMef0nmotoaZ?mode=edit
-
-    useEffect(() => {
-        if(history.location && history.location.pathname && history.location.pathname !== '') {
-            dispatch(getLinkData(history.location.pathname));
-        } else {
-            history.push('/IncorrectLink')
-        }
-    }, []);
+    const {linkData} = useSelector(state => state.app);
+    const {currentCrf, currentIndex} = useSelector(state => state.viewer);
 
     useEffect(() => {
         dispatch(setCurrentCrf(currentIndex));
@@ -44,12 +33,18 @@ export default function Viewer() {
 
     return (
         <BaseLayout Header={Header} Footer={Footer}>
-            {linkData&&<InfoString { ...linkData} currentIndex={currentIndex}/>}
-            {currentCrf&&<FlaskCRF { ...currentCrf}/>}
-            <div style={{textAlign: 'center'}}>
-                <button onClick={previousCrf}>Back</button>
-                <button onClick={nextCrf}>Next</button>
-            </div>
+            {linkData && currentCrf
+                ? <>
+                    <InfoString { ...linkData} currentIndex={currentIndex}/>
+                    <FlaskCRF { ...currentCrf}/>
+                    <div style={{textAlign: 'center'}}>
+                        <button onClick={previousCrf}>Back</button>
+                        <button onClick={nextCrf}>Next</button>
+                    </div>
+                </>
+                : <Preloader />
+            }
+
         </BaseLayout>
     )
 }

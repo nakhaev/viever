@@ -5,9 +5,9 @@ import '@fontsource/roboto/700.css';
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import './App.scss';
 import { useEffect } from 'react';
-import {Switch, Route, useHistory} from 'react-router-dom';
+import {Switch, Route, useHistory, Redirect, useLocation} from 'react-router-dom';
 import { storage } from './services/storage.service';
-import {getLanguages, setUser} from './appSlice';
+import {getLanguages, setUser, getLinkData} from './appSlice';
 
 import Viewer from './pages/Viewer/Viewer';
 import Log from './pages/Log'
@@ -29,8 +29,12 @@ const reduxTostrConfig = {
 
 function App() {
     const history = useHistory();
+    const { pathname } = useLocation();
     const dispatch = useDispatch();
-    const { linkData } = useSelector(state => state.viewer);
+
+    const { linkData, currentLanguage } = useSelector(state => state.app );
+    console.log('app', currentLanguage);
+
     useEffect(() => {
         authorization(history)
             .then(success => {
@@ -41,7 +45,18 @@ function App() {
                 storage.remove('user');
                 console.log('[Authorization]', error);
             });
-    });
+    },[]);
+
+    // http://localhost:3000/kwthZZrCyseV?mode=edit
+    // http://localhost:3000/FED_MMef0nmotoaZ?mode=edit
+
+    useEffect(() => {
+        if(pathname && pathname !== '') {
+            dispatch(getLinkData(pathname));
+        } else {
+            history.push('/IncorrectLink')
+        }
+    }, []);
 
     useEffect(() => {
         if(linkData && linkData.study_id) {
@@ -60,7 +75,10 @@ function App() {
     return (
         <div className={styles.join(' ')}>
             <Switch>
-                <Route path={'/'} exact component={IncorrectLink} />
+                {/*<Route path={'/'} exact component={IncorrectLink} />*/}
+                <Route path={'/'} exact>
+                    <Redirect to={'/FED_MMef0nmotoaZ?mode=edit'} />
+                </Route>
                 <Route path={'/log'} exact component={Log} />
                 <Route path={'/:id'} exact component={Viewer} />
                 <Route component={IncorrectLink} />
