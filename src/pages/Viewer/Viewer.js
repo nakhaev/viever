@@ -6,14 +6,27 @@ import Footer from '../../components/Footer/Footer';
 
 import InfoString from '../../components/InfoString/InfoString';
 import FlaskCRF from '../../components/FlaskCRF/FlaskCRF';
-import {setCurrentCrf, setCurrentIndex} from './viewerSlice';
+import {setCurrentCrf, setCurrentIndex, getLanguages, getLinkData} from './viewerSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import Preloader from '../../components/Preloader/Preloader';
+import {useHistory, useLocation} from 'react-router-dom';
 
 export default function Viewer() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const {linkData} = useSelector(state => state.app);
     const {currentCrf, currentIndex} = useSelector(state => state.viewer);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        dispatch(getLinkData(pathname, history));
+    }, []);
+
+    useEffect(() => {
+        if(linkData && linkData.study_id) {
+            dispatch(getLanguages(linkData.study_id));
+        }
+    }, [linkData]);
 
     useEffect(() => {
         dispatch(setCurrentCrf(currentIndex));
@@ -44,7 +57,6 @@ export default function Viewer() {
                 </>
                 : <Preloader />
             }
-
         </BaseLayout>
     )
 }

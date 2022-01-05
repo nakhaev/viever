@@ -25,12 +25,8 @@ export async function getEventData(eventToken) {
 }
 
 export async function getStudyLanguages(data) {
-    //http://local-api.flaskdata.io/flask/languages/filter
+    // http://local-api.flaskdata.io/flask/languages/filter
     const path = '/flask/languages/filter';
-    // const data = {
-    //     customer_id: null,
-    //     study_id: 1708234
-    // }
     const response = await client.post(path, data);
     return response.data;
 }

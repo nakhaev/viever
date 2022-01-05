@@ -1,7 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getEventData, getStudyLanguages} from './services/api.service';
-import _ from 'lodash';
-import {toastr} from 'react-redux-toastr';
+import {getSelf} from './services/auth.service'
+import {storage} from './services/storage.service';
 
 const initialState = {
     user: null,
@@ -32,21 +31,30 @@ const appSlice = createSlice({
     }
 });
 
-export const getLinkData = (pathname) => async (dispatch) => {
-    try {
-        const data = await getEventData(pathname);
-        data.CRFs = _.sortBy(data.CRFs, ['order']);
-        dispatch(setLinkData(data));
-        toastr.success('Success', 'Data was received successfully');
-    } catch(error) {
-        toastr.error('Error', error.message);
+export const authorization = (token) => async (dispatch) => {
+    const storedUser = storage.get('user');
+    let authToken = null;
+
+    if(token && token !== '') {
+        authToken = token;
+    } else if (storedUser) {
+        authToken = storedUser.token;
+    }
+
+    if(authToken) {
+        try {
+            const user = await getSelf(authToken);
+            if(user) user.token = authToken;
+            storage.set('user', user);
+            dispatch(setUser(user));
+            console.log('AUTHORIZED SUCCESSFULLY');
+        } catch(error) {
+            storage.remove('user');
+            dispatch(setUser(null));
+            console.log('UNAUTHORIZED');
+        }
     }
 }
 
-export const getLanguages = (study_id) => async (dispatch) => {
-    const data = await getStudyLanguages({study_id, customer_id: null});
-    dispatch(setLanguages(data));
-}
-
-export const { clearState, setData, setUser, setLinkData, setLanguages, setLanguage } = appSlice.actions;
+export const { clearState, setUser, setLinkData, setLanguages, setLanguage } = appSlice.actions;
 export default appSlice.reducer;

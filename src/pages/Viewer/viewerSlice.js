@@ -1,4 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {getEventData, getStudyLanguages} from '../../services/api.service';
+import _ from 'lodash';
+import {toastr} from 'react-redux-toastr';
+import {setLanguages, setLinkData} from '../../appSlice';
 
 const initialState = {
     currentCrf: null,
@@ -12,6 +16,9 @@ const viewerSlice = createSlice({
         clearState: () => {
             return initialState;
         },
+        setLinkData: (state, action) => {
+            return { ...state, linkData: action.payload };
+        },
         setCurrentIndex: (state, action) => {
             return { ...state, currentIndex: action.payload };
         },
@@ -20,6 +27,29 @@ const viewerSlice = createSlice({
         }
     }
 });
+
+export const getLinkData = (pathname, history) => async (dispatch) => {
+    if(pathname === '') {
+        return history.push('/incorrect-link');
+    }
+    try {
+        const data = await getEventData(pathname);
+        data.CRFs = _.sortBy(data.CRFs, ['order']);
+        dispatch(setLinkData(data));
+    } catch(error) {
+        toastr.error('Failed to get data')
+        history.push('/incorrect-link');
+    }
+}
+
+export const getLanguages = (study_id) => async (dispatch) => {
+    try {
+        const data = await getStudyLanguages({study_id, customer_id: null});
+        dispatch(setLanguages(data));
+    } catch (error) {
+        console.log('Receiving of study languages failed...', error);
+    }
+}
 
 export const setCurrentCrf  = (index) => async (dispatch, getState) => {
     const {linkData} = getState().app;

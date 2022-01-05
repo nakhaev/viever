@@ -5,16 +5,15 @@ import '@fontsource/roboto/700.css';
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import './App.scss';
 import { useEffect } from 'react';
-import {Switch, Route, useHistory, Redirect, useLocation} from 'react-router-dom';
-import { storage } from './services/storage.service';
-import {getLanguages, setUser, getLinkData} from './appSlice';
+import {Switch, Route, Redirect, useLocation} from 'react-router-dom';
+import {authorization} from './appSlice';
 
 import Viewer from './pages/Viewer/Viewer';
 import Log from './pages/Log'
 import IncorrectLink from './pages/IncorrectLink';
-import { authorization } from './services/auth.service';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import ReduxToastr from 'react-redux-toastr';
+import qs from 'qs';
 
 const reduxTostrConfig = {
     timeOut: 5000,
@@ -27,58 +26,37 @@ const reduxTostrConfig = {
     closeOnToastrClick: true
 }
 
+// test links
+// http://localhost:3000/kwthZZrCyseV?mode=edit
+// http://localhost:3000/FED_MMef0nmotoaZ?mode=edit
+
 function App() {
-    const history = useHistory();
-    const { pathname } = useLocation();
+    const { search } = useLocation();
     const dispatch = useDispatch();
-
-    const { linkData, currentLanguage } = useSelector(state => state.app );
-    console.log('app', currentLanguage);
-
-    useEffect(() => {
-        authorization(history)
-            .then(success => {
-                storage.set('user', success);
-                dispatch(setUser(success));
-            })
-            .catch(error => {
-                storage.remove('user');
-                console.log('[Authorization]', error);
-            });
-    },[]);
-
-    // http://localhost:3000/kwthZZrCyseV?mode=edit
-    // http://localhost:3000/FED_MMef0nmotoaZ?mode=edit
-
-    useEffect(() => {
-        if(pathname && pathname !== '') {
-            dispatch(getLinkData(pathname));
-        } else {
-            history.push('/IncorrectLink')
-        }
-    }, []);
-
-    useEffect(() => {
-        if(linkData && linkData.study_id) {
-            dispatch(getLanguages(linkData.study_id));
-        }
-    }, [linkData])
 
     let styles = ['App']
 
     // checking of the user agent and adding the additional styles for IE11
     const ua = window.navigator.userAgent;
     if(ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1) {
-        styles.push('ie')
+        styles.push('ie');
     }
+
+    useEffect(() => {
+        const token = qs.parse(search, { ignoreQueryPrefix: true })['token'];
+        dispatch(authorization(token));
+    },[]);
 
     return (
         <div className={styles.join(' ')}>
             <Switch>
                 {/*<Route path={'/'} exact component={IncorrectLink} />*/}
+
                 <Route path={'/'} exact>
                     <Redirect to={'/FED_MMef0nmotoaZ?mode=edit'} />
                 </Route>
+
+                <Route path={'/incorrect-link'} exact component={IncorrectLink} />
                 <Route path={'/log'} exact component={Log} />
                 <Route path={'/:id'} exact component={Viewer} />
                 <Route component={IncorrectLink} />
