@@ -12,8 +12,6 @@ export default function IncorrectLink() {
             background: '#d7e2f2',
             minHeight: '100vh',
             color: '#3e8aa4',
-            // justifyContent: 'center',
-            // justifyItems: 'center',
             flexGrow: 1,
             padding: '0 20px'
         },

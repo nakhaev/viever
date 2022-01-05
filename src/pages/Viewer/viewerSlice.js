@@ -2,11 +2,12 @@ import {createSlice} from '@reduxjs/toolkit';
 import {getEventData, getStudyLanguages} from '../../services/api.service';
 import _ from 'lodash';
 import {toastr} from 'react-redux-toastr';
-import {setLanguages, setLinkData} from '../../appSlice';
+import {setLanguages} from '../../appSlice';
 
 const initialState = {
     currentCrf: null,
-    currentIndex: 0
+    currentIndex: 0,
+    linkData: null,
 };
 
 const viewerSlice = createSlice({
@@ -34,10 +35,11 @@ export const getLinkData = (pathname, history) => async (dispatch) => {
     }
     try {
         const data = await getEventData(pathname);
+
         data.CRFs = _.sortBy(data.CRFs, ['order']);
         dispatch(setLinkData(data));
     } catch(error) {
-        toastr.error('Failed to get data')
+        toastr.error('Failed to get data');
         history.push('/incorrect-link');
     }
 }
@@ -52,11 +54,11 @@ export const getLanguages = (study_id) => async (dispatch) => {
 }
 
 export const setCurrentCrf  = (index) => async (dispatch, getState) => {
-    const {linkData} = getState().app;
+    const {linkData} = getState().viewer;
     if(linkData && linkData.CRFs) {
         dispatch(setCrf(linkData.CRFs[index]));
     }
 }
 
-export const { clearState, setCurrentIndex, setCrf} = viewerSlice.actions;
+export const { clearState, setCurrentIndex, setCrf, setLinkData } = viewerSlice.actions;
 export default viewerSlice.reducer;

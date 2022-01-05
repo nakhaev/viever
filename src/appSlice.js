@@ -5,7 +5,7 @@ import {storage} from './services/storage.service';
 const initialState = {
     user: null,
     languages: null,
-    linkData: null,
+    currentLink: null,
     currentLanguage: 'en'
 };
 
@@ -16,9 +16,6 @@ const appSlice = createSlice({
         clearState: () => {
             return initialState;
         },
-        setLinkData: (state, action) => {
-            return { ...state, linkData: action.payload };
-        },
         setUser: (state, action) => {
             return { ...state, user: action.payload };
         },
@@ -27,6 +24,9 @@ const appSlice = createSlice({
         },
         setLanguage: (state, action) => {
             return { ...state, currentLanguage: action.payload };
+        },
+        setCurrentLink: (state, action) => {
+            return { ...state, currentLink: action.payload };
         },
     }
 });
@@ -56,5 +56,5 @@ export const authorization = (token) => async (dispatch) => {
     }
 }
 
-export const { clearState, setUser, setLinkData, setLanguages, setLanguage } = appSlice.actions;
+export const { clearState, setUser, setCurrentLink, setLanguages, setLanguage } = appSlice.actions;
 export default appSlice.reducer;

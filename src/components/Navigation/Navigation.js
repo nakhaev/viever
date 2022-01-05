@@ -5,8 +5,20 @@ import {NavLink} from 'react-router-dom';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import navigations from '../../constants/navigation.json'
 import AppActions from '../AppActions/AppActions'
+import {useSelector} from 'react-redux';
 
 const Navigation = () => {
+    const {currentLink} = useSelector(state => state.app);
+
+    if(currentLink) {
+        navigations.map(item => {
+            if(item.path === '/') {
+                item.path = currentLink.pathname + currentLink.search;
+            }
+            return item;
+        });
+    }
+
     return (
         <>
             <Toolbar id="navigation">

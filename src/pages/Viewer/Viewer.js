@@ -10,16 +10,17 @@ import {setCurrentCrf, setCurrentIndex, getLanguages, getLinkData} from './viewe
 import {useDispatch, useSelector} from 'react-redux';
 import Preloader from '../../components/Preloader/Preloader';
 import {useHistory, useLocation} from 'react-router-dom';
+import {setCurrentLink} from '../../appSlice';
 
 export default function Viewer() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {linkData} = useSelector(state => state.app);
-    const {currentCrf, currentIndex} = useSelector(state => state.viewer);
-    const { pathname } = useLocation();
+    const {linkData, currentCrf, currentIndex} = useSelector(state => state.viewer);
+    const location = useLocation();
 
     useEffect(() => {
-        dispatch(getLinkData(pathname, history));
+        dispatch(setCurrentLink(location));
+        dispatch(getLinkData(location.pathname, history));
     }, []);
 
     useEffect(() => {
