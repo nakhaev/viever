@@ -10,7 +10,7 @@ import {authorization} from './appSlice';
 
 import Viewer from './pages/Viewer/Viewer';
 import Log from './pages/Log'
-import IncorrectLink from './pages/IncorrectLink';
+import IncorrectLink from './pages/IncorrectLink/IncorrectLink';
 import {useDispatch} from "react-redux";
 import ReduxToastr from 'react-redux-toastr';
 import qs from 'qs';
@@ -52,9 +52,7 @@ function App() {
             <Switch>
                 {/*<Route path={'/'} exact component={IncorrectLink} />*/}
 
-                <Route path={'/'} exact>
-                    <Redirect to={'/FED_MMef0nmotoaZ?mode=edit'} />
-                </Route>
+                <Route path={'/'} exact> <Redirect to={'/FED_MMef0nmotoaZ?mode=edit'} /> </Route>
 
                 <Route path={'/incorrect-link'} exact component={IncorrectLink} />
                 <Route path={'/log'} exact component={Log} />
