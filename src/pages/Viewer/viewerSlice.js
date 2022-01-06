@@ -3,6 +3,7 @@ import {getEventData, getStudyLanguages} from '../../services/api.service';
 import _ from 'lodash';
 import {toastr} from 'react-redux-toastr';
 import {setLanguages} from '../../appSlice';
+import defaultLanguages from '../../constants/defaultLanguages.json';
 
 const initialState = {
     currentCrf: null,
@@ -50,6 +51,7 @@ export const getLanguages = (study_id) => async (dispatch) => {
         dispatch(setLanguages(data));
     } catch (error) {
         console.log('Receiving of study languages failed...', error);
+        dispatch(setLanguages(defaultLanguages));
     }
 }
 

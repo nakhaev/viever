@@ -16,6 +16,7 @@ export default function Viewer() {
     const dispatch = useDispatch();
     const history = useHistory();
     const {linkData, currentCrf, currentIndex} = useSelector(state => state.viewer);
+    const {languages} = useSelector(state => state.app);
     const location = useLocation();
 
     useEffect(() => {
@@ -47,7 +48,7 @@ export default function Viewer() {
 
     return (
         <BaseLayout Header={Header} Footer={Footer}>
-            {linkData && currentCrf
+            {linkData && languages && currentCrf
                 ? <>
                     <InfoString { ...linkData} currentIndex={currentIndex}/>
                     <FlaskCRF { ...currentCrf}/>
