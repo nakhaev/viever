@@ -3,6 +3,7 @@ import './IncorrectLink.scss';
 import BaseLayout from '../../components/BaseLayout';
 import {Grid, Button} from '@mui/material';
 import {useHistory} from 'react-router-dom';
+import {translate} from '../../services/translate.service';
 
 export default function IncorrectLink() {
     const history = useHistory();
@@ -47,15 +48,15 @@ export default function IncorrectLink() {
         <BaseLayout Header={null} Footer={null}>
             <Grid container style={styles.wrapper}>
                 <Grid item xs={12} md={6} style={styles.item}>
-                    <h1 style={styles.label}>If you see this page - please make sure, you use a correct link...</h1>
-                    <h3 style={styles.description}>Maybe the server was unavailable, or something terrible happened...</h3>
+                    <h1 style={styles.label}>{ translate('UNAUTHORIZED$YOU_NEED_AUTHORIZE') }</h1>
+                    <h3 style={styles.description}>{ translate('UNAUTHORIZED$UNAUTHORIZED_DESCRIPTION') }</h3>
                 </Grid>
                 <Grid item xs={12} md={6} style={styles.item}>
                     <img alt="home" width="200px" style={styles.image} src="/flask_white_icon.svg" id="flask-icon"/>
                 </Grid>
                 <Grid item xs={12} style={styles.actions}>
                     <Button variant="contained" color="success" onClick={() => history.goBack()}>
-                        TRY BACK
+                        { translate('UNAUTHORIZED$BTN_AUTHORIZE') }
                     </Button>
                 </Grid>
             </Grid>
