@@ -6,6 +6,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import {Menu, MenuItem} from '@mui/material';
 import {setLanguage} from '../../appSlice';
 import './LanguageSelector.scss';
+import {translate} from '../../services/translate.service';
 
 const LanguageSelector = () => {
     const {languages, currentLanguage} = useSelector(state => state.app);
@@ -46,7 +47,7 @@ const LanguageSelector = () => {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
                     >
-                Languages
+                {translate('GLOBAL$LANGUAGES')}
                 {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </Button>
             <Menu

@@ -6,6 +6,7 @@ import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import navigations from '../../constants/navigation.json'
 import AppActions from '../AppActions/AppActions'
 import {useSelector} from 'react-redux';
+import {translate} from '../../services/translate.service';
 
 const Navigation = () => {
     const {currentLink} = useSelector(state => state.app);
@@ -23,7 +24,7 @@ const Navigation = () => {
         <>
             <Toolbar id="navigation">
                 {navigations.map((item, index) => {
-                    return <NavLink key={item.label+index} to={item.path} exact className="nav-item"> {item.label} </NavLink>
+                    return <NavLink key={item.label+index} to={item.path} exact className="nav-item"> {translate(item.label)} </NavLink>
                 })}
                 <LanguageSelector />
             </Toolbar>

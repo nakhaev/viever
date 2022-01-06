@@ -3,6 +3,7 @@ import './AppActions.scss';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import {Menu, MenuItem} from '@mui/material';
+import {translate} from '../../services/translate.service';
 
 const AppActions = (props) => {
     const { embedded } = props;
@@ -24,7 +25,7 @@ const AppActions = (props) => {
     // create list of menu items
     const actions = () => {
         return (
-            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            <MenuItem onClick={handleLogout}>{ translate('GLOBAL$LOGOUT') }</MenuItem>
         )
     }
 

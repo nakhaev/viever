@@ -8,6 +8,7 @@ import {useHistory} from 'react-router-dom';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import Box from '@mui/material/Box';
 import AppActions from '../AppActions/AppActions';
+import {translate} from '../../services/translate.service';
 
 const MobileNavigation = () => {
     const history = useHistory();
@@ -54,7 +55,7 @@ const MobileNavigation = () => {
                 }}
             >
                 {navigation.map((item, index) => {
-                    return <MenuItem key={item.label+index} onClick={() => navigateTo(item.path)} className="nav-item"> {item.label} </MenuItem>
+                    return <MenuItem key={item.label+index} onClick={() => navigateTo(item.path)} className="nav-item"> {translate(item.label)} </MenuItem>
                 })}
                 <Divider />
                 <AppActions embedded="true"/>

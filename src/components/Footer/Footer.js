@@ -13,11 +13,11 @@ export default function Footer() {
             <Grid item xs={12}>
                 <ul className="list-inline footer-menu">
                     <li className="footer-link"><a
-                        href="https://app.flaskdata.io/privacy.html">Privacy Policy { translate('FOOTER$PRIVACY') }</a>
+                        href="https://app.flaskdata.io/privacy.html">{ translate('FOOTER$PRIVACY') }</a>
                     </li>
                     <li className="vertical-delimiter">&nbsp;</li>
                     <li className="footer-link"><a
-                        href="https://app.flaskdata.io/tos.html">Terms of Service { translate('FOOTER$TERMS_OF_USE') }</a>
+                        href="https://app.flaskdata.io/tos.html">{ translate('FOOTER$TERMS_OF_USE') }</a>
                     </li>
                 </ul>
             </Grid>

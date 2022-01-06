@@ -1,10 +1,10 @@
 [
   {
-    "label": "View current CRF",
+    "label": "GLOBAL$VIEW_CURRENT_CRF",
     "path": "/"
   },
   {
-    "label": "Log",
+    "label": "GLOBAL$LOG",
     "path": "/log"
   }
 ]
