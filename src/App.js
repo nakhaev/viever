@@ -64,7 +64,6 @@ function App() {
 
     return (
         <div className={classes.join(' ')}>
-            <p>{direction}</p>
             <Switch>
                 {/*<Route path={'/'} exact component={IncorrectLink} />*/}
 
