@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import {Menu, MenuItem} from '@mui/material';
-import {setLanguage} from '../../appSlice';
+import {setLanguage, setDirection} from '../../appSlice';
 import './LanguageSelector.scss';
 import {translate} from '../../services/translate.service';
 
@@ -28,7 +28,8 @@ const LanguageSelector = () => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = (lang) => {
-        if(lang && lang !== '') dispatch(setLanguage(lang))
+        if(lang && lang.languagekey !== '') dispatch(setLanguage(lang.languagekey));
+        if(lang && lang.direction !== '') dispatch(setDirection(lang.direction));
         setAnchorEl(null);
     };
 
@@ -64,7 +65,7 @@ const LanguageSelector = () => {
                     return (
                         <MenuItem
                             key={item.id}
-                            onClick={() => handleClose(item.languagekey)}
+                            onClick={() => handleClose(item)}
                             className={item.languagekey === currentLanguage ? 'selected' : ''}
                             >
                             {item.name}

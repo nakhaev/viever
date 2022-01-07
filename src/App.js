@@ -4,14 +4,14 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import './App.scss';
-import { useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import {Switch, Route, Redirect, useLocation} from 'react-router-dom';
 import {authorization} from './appSlice';
 
 import Viewer from './pages/Viewer/Viewer';
 import Log from './pages/Log'
 import IncorrectLink from './pages/IncorrectLink/IncorrectLink';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import ReduxToastr from 'react-redux-toastr';
 import qs from 'qs';
 
@@ -33,22 +33,38 @@ const reduxTostrConfig = {
 function App() {
     const { search } = useLocation();
     const dispatch = useDispatch();
+    const {direction} = useSelector(state => state.app);
+    const [classes, setClasses] = useState(['App']);
 
-    let styles = ['App']
-
-    // checking of the user agent and adding the additional styles for IE11
-    const ua = window.navigator.userAgent;
-    if(ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1) {
-        styles.push('ie');
-    }
+    useEffect( () => {
+        // checking of the user agent and adding the additional classes for IE11
+        const ua = window.navigator.userAgent;
+        if(ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1) {
+            setClasses(prev => {
+                let newclasses = [ ...prev];
+                newclasses.push('ie');
+                return newclasses;
+            })
+        }
+    })
 
     useEffect(() => {
         const token = qs.parse(search, { ignoreQueryPrefix: true })['token'];
         dispatch(authorization(token));
     },[]);
 
+    useEffect(() => {
+        setClasses(prev => {
+            let newclasses = [ ...prev];
+            newclasses = newclasses.filter(item => item !== 'direction-rtl');
+            if(direction === 'rtl') newclasses.push('direction-rtl');
+            return newclasses;
+        })
+    },[direction]);
+
     return (
-        <div className={styles.join(' ')}>
+        <div className={classes.join(' ')}>
+            <p>{direction}</p>
             <Switch>
                 {/*<Route path={'/'} exact component={IncorrectLink} />*/}
 

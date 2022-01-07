@@ -6,7 +6,8 @@ const initialState = {
     user: null,
     languages: null,
     currentLink: null,
-    currentLanguage: 'en'
+    currentLanguage: 'en',
+    direction: 'ltr'
 };
 
 const appSlice = createSlice({
@@ -24,6 +25,9 @@ const appSlice = createSlice({
         },
         setLanguage: (state, action) => {
             return { ...state, currentLanguage: action.payload };
+        },
+        setDirection: (state, action) => {
+            return { ...state, direction: action.payload };
         },
         setCurrentLink: (state, action) => {
             return { ...state, currentLink: action.payload };
@@ -56,5 +60,5 @@ export const authorization = (token) => async (dispatch) => {
     }
 }
 
-export const { clearState, setUser, setCurrentLink, setLanguages, setLanguage } = appSlice.actions;
+export const { clearState, setUser, setCurrentLink, setLanguages, setLanguage, setDirection } = appSlice.actions;
 export default appSlice.reducer;
