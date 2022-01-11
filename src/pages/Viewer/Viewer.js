@@ -10,19 +10,15 @@ import {setCurrentCrf, setCurrentIndex, getLanguages, getLinkData} from './viewe
 import {useDispatch, useSelector} from 'react-redux';
 import Preloader from '../../components/Preloader/Preloader';
 import {useHistory, useLocation} from 'react-router-dom';
-import {setCurrentLink, setLanguage} from '../../appSlice';
-import qs from 'qs';
-import _ from 'lodash';
 
 export default function Viewer() {
     const dispatch = useDispatch();
     const history = useHistory();
     const {linkData, currentCrf, currentIndex} = useSelector(state => state.viewer);
-    const {languages} = useSelector(state => state.app);
+    const {languages, queryParams: { displayHeader, displayFooter, displayInfoHeader }} = useSelector(state => state.app);
     const location = useLocation();
 
     useEffect(() => {
-        dispatch(setCurrentLink(location));
         dispatch(getLinkData(location.pathname, history));
     }, []);
 
@@ -35,28 +31,6 @@ export default function Viewer() {
     useEffect(() => {
         dispatch(setCurrentCrf(currentIndex));
     }, [linkData, currentIndex]);
-
-    useEffect(() => {
-        /**
-         * list of query params
-         *
-         * crfIndex - the index of the current CRF in the event
-         * languageSync - flag to turn on/off the synchronization of the language changing
-         * autoClose - flag to automatically close each CRF when saving
-         * authToken - JWT token for the user authorization
-         * displayInfoHeader - flag to turn on/off the displaying of the info string
-         * mode - ['edit', 'display'] 'edit' - allow edit form data, 'display' - readonly mode
-         * hideBackButton - flag to hide the 'Back' button
-         * callbackURL - callback URL
-         * lang - language
-         *
-         */
-        const lang = qs.parse(location.search, { ignoreQueryPrefix: true })['lang'];
-        if(lang) {
-            let exist = _.find(languages, item => item.languagekey === lang);
-            if(exist) dispatch(setLanguage(lang));
-        }
-    }, [location, languages]);
 
     const nextCrf = () => {
         if(currentIndex + 1 !== linkData.CRFs.length) {
@@ -71,10 +45,10 @@ export default function Viewer() {
     }
 
     return (
-        <BaseLayout Header={Header} Footer={Footer}>
+        <BaseLayout Header={ displayHeader === 'true' ? Header : null } Footer={ displayFooter === 'true' ? Footer : null }>
             {linkData && languages && currentCrf
                 ? <>
-                    <InfoString { ...linkData} currentIndex={currentIndex}/>
+                    {displayInfoHeader === 'true' && <InfoString { ...linkData} currentIndex={currentIndex}/>}
                     <FlaskCRF { ...currentCrf}/>
                     <div style={{textAlign: 'center'}}>
                         <button onClick={previousCrf}>Back</button>
