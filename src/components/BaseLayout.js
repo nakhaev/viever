@@ -21,7 +21,7 @@ export default function BaseLayout(props) {
                 </Grid>
             </Grid>
             {/* footer */}
-            {Footer && <Grid item xs={12} style={{ alignSelf: 'flex-end' }}> <Footer /> </Grid>}
+            {Footer && <Grid item xs={12} style={{ alignSelf: 'flex-end'}}> <Footer /> </Grid>}
         </Grid>
     )
 }

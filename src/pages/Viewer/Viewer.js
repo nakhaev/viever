@@ -10,12 +10,14 @@ import {setCurrentCrf, setCurrentIndex, getLanguages, getLinkData} from './viewe
 import {useDispatch, useSelector} from 'react-redux';
 import Preloader from '../../components/Preloader/Preloader';
 import {useHistory, useLocation} from 'react-router-dom';
+import qs from 'qs';
+import FormControls from '../../components/FormControls/FormControls';
 
 export default function Viewer() {
     const dispatch = useDispatch();
     const history = useHistory();
     const {linkData, currentCrf, currentIndex} = useSelector(state => state.viewer);
-    const {languages, queryParams: { displayHeader, displayFooter, displayInfoHeader }} = useSelector(state => state.app);
+    const {languages, queryParams, queryParams: { hideHeader, hideFooter, displayInfoHeader, crfIndex }} = useSelector(state => state.app);
     const location = useLocation();
 
     useEffect(() => {
@@ -32,28 +34,30 @@ export default function Viewer() {
         dispatch(setCurrentCrf(currentIndex));
     }, [linkData, currentIndex]);
 
-    const nextCrf = () => {
-        if(currentIndex + 1 !== linkData.CRFs.length) {
-            dispatch(setCurrentIndex(currentIndex + 1));
-        }
-    }
 
-    const previousCrf = () => {
-        if(currentIndex - 1 >= 0) {
-            dispatch(setCurrentIndex(currentIndex - 1));
+    useEffect(() => {
+        let index = 0;
+
+        try {
+            index = Number(crfIndex);
+        } catch(error) {
+            console.log(error);
         }
-    }
+
+        if(linkData && linkData.CRFs && index >= 0 && index < linkData.CRFs.length ) {
+            dispatch(setCurrentIndex(index));
+            history.replace({search: qs.stringify({ ...queryParams, crfIndex: String(index)})});
+        }
+
+    }, [crfIndex, linkData]);
 
     return (
-        <BaseLayout Header={ displayHeader === 'true' ? Header : null } Footer={ displayFooter === 'true' ? Footer : null }>
+        <BaseLayout Header={ hideHeader === 'true' ? null : Header } Footer={ hideFooter === 'true' ? null : Footer}>
             {linkData && languages && currentCrf
                 ? <>
                     {displayInfoHeader === 'true' && <InfoString { ...linkData} currentIndex={currentIndex}/>}
                     <FlaskCRF { ...currentCrf}/>
-                    <div style={{textAlign: 'center'}}>
-                        <button onClick={previousCrf}>Back</button>
-                        <button onClick={nextCrf}>Next</button>
-                    </div>
+                    <FormControls />
                 </>
                 : <Preloader />
             }

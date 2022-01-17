@@ -61,6 +61,8 @@ export const authorization = (token) => async (dispatch) => {
             dispatch(setUser(null));
             console.log('UNAUTHORIZED');
         }
+    } else {
+        console.log('UNAUTHORIZED');
     }
 }
 

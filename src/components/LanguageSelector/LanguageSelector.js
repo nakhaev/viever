@@ -7,10 +7,13 @@ import {Menu, MenuItem} from '@mui/material';
 import {setLanguage, setDirection} from '../../appSlice';
 import './LanguageSelector.scss';
 import {translate} from '../../services/translate.service';
+import {useHistory} from 'react-router-dom';
+import qs from 'qs';
 
 const LanguageSelector = () => {
-    const {languages, currentLanguage} = useSelector(state => state.app);
+    const {languages, currentLanguage, queryParams} = useSelector(state => state.app);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const defaultLanguage = {
         direction: "ltr",
@@ -28,8 +31,12 @@ const LanguageSelector = () => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = (lang) => {
-        if(lang && lang.languagekey !== '') dispatch(setLanguage(lang.languagekey));
+        if(lang && lang.languagekey !== '') {
+            dispatch(setLanguage(lang.languagekey));
+            history.replace({search: qs.stringify({ ...queryParams, lang: lang.languagekey})});
+        }
         if(lang && lang.direction !== '') dispatch(setDirection(lang.direction));
+
         setAnchorEl(null);
     };
 
