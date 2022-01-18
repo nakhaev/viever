@@ -6,11 +6,12 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import {Menu, MenuItem} from '@mui/material';
 import {setLanguage, setDirection} from '../../appSlice';
 import './LanguageSelector.scss';
-import {translate} from '../../services/translate.service';
 import {useHistory} from 'react-router-dom';
 import qs from 'qs';
+import useTranslate from '../../Hooks/useTranslate';
 
 const LanguageSelector = () => {
+    const {translate} = useTranslate();
     const {languages, currentLanguage, queryParams} = useSelector(state => state.app);
     const dispatch = useDispatch();
     const history = useHistory();

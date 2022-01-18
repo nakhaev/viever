@@ -1,8 +1,9 @@
 import React from 'react';
 import './InfoString.scss';
-import {translate, fieldLocal} from '../../services/translate.service';
+import useTranslate from '../../Hooks/useTranslate';
 
 const InfoString = props => {
+    const {translate, fieldLocal} = useTranslate();
     const {subject, name, CRFs, currentIndex, siteName, studyName} = props;
     const CRF = CRFs[currentIndex]
     return (

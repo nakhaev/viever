@@ -6,9 +6,10 @@ import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import navigations from '../../constants/navigation.json'
 import AppActions from '../AppActions/AppActions'
 import {useSelector} from 'react-redux';
-import {translate} from '../../services/translate.service';
+import useTranslate from '../../Hooks/useTranslate';
 
 const Navigation = () => {
+    const {translate} = useTranslate();
     const {currentLink} = useSelector(state => state.app);
 
     if(currentLink) {

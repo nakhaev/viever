@@ -1,9 +1,10 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import './Footer.scss';
-import {translate} from '../../services/translate.service';
+import useTranslate from '../../Hooks/useTranslate';
 
 export default function Footer() {
+    const {translate} = useTranslate();
     const currentYear = (new Date()).getFullYear();
     return(
         <Grid container  id="footer">

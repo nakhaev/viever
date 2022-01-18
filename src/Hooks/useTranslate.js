@@ -1,13 +1,12 @@
+import {useSelector} from 'react-redux';
 import dictionaries from '../constants/dictionaries';
 import _ from 'lodash';
-import store from '../store';
 
-/**
- * Translate service provide translation functionality within application
- */
-export class TranslateService {
-    static translate (key = '') {
-        let {currentLanguage} = store.getState().app;
+const useTranslate = () => {
+    let defaultLanguage = 'ENGLISH';
+    let {currentLanguage, languages} = useSelector(state => state.app);
+
+    const translate =  (key = '') => {
         if (!dictionaries[currentLanguage]) {
             console.error(`[Translate service] language '${currentLanguage}' is not supported...`);
             currentLanguage = 'en';
@@ -21,11 +20,10 @@ export class TranslateService {
         return dictionaries[currentLanguage][key];
     }
 
-    static fieldLocal (field = {}) {
-        let {currentLanguage, languages} = store.getState().app;
+    const fieldLocal = (field = {}) => {
         let selectedLanguage = _.find(languages, item => item.languagekey === currentLanguage);
 
-        let langEnum = 'ENGLISH';
+        let langEnum = '';
         if (!dictionaries[currentLanguage] || !selectedLanguage || !selectedLanguage.enum) {
             console.error(`[Translate service] language '${currentLanguage}' is not supported...`);
             currentLanguage = 'en';
@@ -38,11 +36,11 @@ export class TranslateService {
             console.error(`[Translate service] received argument is not a object ${field}`);
             return '';
         }
-        if (!field[langEnum]) { return field.ENGLISH; }
+        if (!field[langEnum]) return field[defaultLanguage];
         return field[langEnum];
     }
-}
 
-export const translate = TranslateService.translate;
-export const fieldLocal = TranslateService.fieldLocal;
-export default TranslateService;
+    return { translate, fieldLocal };
+};
+
+export default useTranslate;

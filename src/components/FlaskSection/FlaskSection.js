@@ -3,9 +3,10 @@ import './FlaskSection.scss';
 import ViewerWrapper from '../ViewerWrapper/ViewerWrapper';
 import ResponsiveItem from '../ResponsiveItem/ResponsiveItem';
 import FlaskCard from '../FlaskCard/FlaskCard';
-import {fieldLocal} from '../../services/translate.service';
+import useTranslate from '../../Hooks/useTranslate';
 
 const FlaskSection = props => {
+    const {fieldLocal} = useTranslate();
     const {name, description, items} = props;
     return (
         <React.Fragment>

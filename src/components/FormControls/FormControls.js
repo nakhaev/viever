@@ -1,12 +1,12 @@
 import React from 'react';
 import './FormControls.scss'
 import {Button, Container, Grid, Checkbox, FormControlLabel} from '@mui/material';
-import {translate} from '../../services/translate.service';
 import {setQueryParams} from '../../appSlice';
 import {useDispatch, useSelector} from 'react-redux';
+import useTranslate from '../../Hooks/useTranslate';
 
 const FormControls = () => {
-
+    const {translate} = useTranslate();
     const dispatch = useDispatch();
     const {currentIndex, linkData} = useSelector(state => state.viewer);
     const {queryParams} = useSelector(state => state.app);

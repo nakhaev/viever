@@ -3,9 +3,10 @@ import './AppActions.scss';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import {Menu, MenuItem} from '@mui/material';
-import {translate} from '../../services/translate.service';
+import useTranslate from '../../Hooks/useTranslate';
 
 const AppActions = (props) => {
+    const {translate} = useTranslate();
     const { embedded } = props;
 
     const [anchorEl, setAnchorEl] = useState(null);

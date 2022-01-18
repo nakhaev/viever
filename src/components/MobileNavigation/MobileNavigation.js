@@ -8,9 +8,10 @@ import {useHistory} from 'react-router-dom';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import Box from '@mui/material/Box';
 import AppActions from '../AppActions/AppActions';
-import {translate} from '../../services/translate.service';
+import useTranslate from '../../Hooks/useTranslate';
 
 const MobileNavigation = () => {
+    const {translate} = useTranslate();
     const history = useHistory();
 
     const [anchorEl, setAnchorEl] = useState(null);

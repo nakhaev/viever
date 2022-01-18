@@ -36,8 +36,20 @@ export const getLinkData = (pathname, history) => async (dispatch) => {
     }
     try {
         const data = await getEventData(pathname);
-
+        // sort CRF by order
         data.CRFs = _.sortBy(data.CRFs, ['order']);
+        // add name field to each form item
+        data.CRFs.map(crf => {
+            crf.sections.map(section => {
+                section.items.map(item => {
+                    item.name = item.variable + '_' + crf.dataId;
+                    return item;
+                });
+                return section;
+            })
+            return crf;
+        })
+
         dispatch(setLinkData(data));
     } catch(error) {
         toastr.error('Failed to get data');
