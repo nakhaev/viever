@@ -8,7 +8,7 @@ import {useHistory} from 'react-router-dom';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import Box from '@mui/material/Box';
 import AppActions from '../AppActions/AppActions';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
 const MobileNavigation = () => {
     const {translate} = useTranslate();

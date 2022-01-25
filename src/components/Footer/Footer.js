@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import './Footer.scss';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
 export default function Footer() {
     const {translate} = useTranslate();

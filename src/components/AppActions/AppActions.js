@@ -3,7 +3,7 @@ import './AppActions.scss';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import {Menu, MenuItem} from '@mui/material';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
 const AppActions = (props) => {
     const {translate} = useTranslate();

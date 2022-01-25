@@ -27,7 +27,7 @@ const test = {
     hideHeader: false,
     hideFooter: false,
     callbackURL: 'http://local-app.flaskdata.io',
-    authToken: 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJxYzJlcjhYaGFwRktJRGpLQ1kwSzhUZ3o0VWtJZFE2cyIsImV4cCI6MTY0MjAwMzE1OTQ5NiwiaWF0IjoxNjQxOTgxNTU5fQ.xT5eyHpN0g5bgn854H7ILyoC-0QrFhaogRSsDDdJHhnyXcorVuong_2lkA9LXLFq',
+    authToken: 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbzhLV3M4VkNNWEN0dlRRVENUUWxOZGo5T1Z5aFdzTCIsImV4cCI6MTY0MzEyODEzMjE0MiwiaWF0IjoxNjQzMTA2NTMyfQ.b0OkeYP-KEgM5ftTG2JPlkhH9vkUFhVFD5yrYFZKb-Vm20RQ5KZvy51HxEkIyVIe',
 }
 
 const reduxTostrConfig = {
@@ -121,7 +121,7 @@ function App() {
             <Switch>
                 {/*<Route path={'/'} exact component={IncorrectLink} />*/}
 
-                <Route path={'/'} exact> <Redirect to={'/FED_MMef0nmotoaZ?'+qs.stringify(test)} /> </Route>
+                <Route path={'/'} exact> <Redirect to={'/FED_1Wsf5fXfuqdW?'+qs.stringify(test)} /> </Route>
 
                 <Route path={'/incorrect-link'} exact component={IncorrectLink} />
                 <Route path={'/log'} exact component={Log} />

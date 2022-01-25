@@ -6,7 +6,7 @@ import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import navigations from '../../constants/navigation.json'
 import AppActions from '../AppActions/AppActions'
 import {useSelector} from 'react-redux';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
 const Navigation = () => {
     const {translate} = useTranslate();

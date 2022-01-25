@@ -3,7 +3,7 @@ import './IncorrectLink.scss';
 import BaseLayout from '../../components/BaseLayout';
 import {Grid, Button} from '@mui/material';
 import {useHistory} from 'react-router-dom';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
 export default function IncorrectLink() {
     const {translate} = useTranslate();

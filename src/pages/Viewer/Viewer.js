@@ -11,14 +11,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import Preloader from '../../components/Preloader/Preloader';
 import {useHistory, useLocation} from 'react-router-dom';
 import qs from 'qs';
-import FormControls from '../../components/FormControls/FormControls';
 
 export default function Viewer() {
-    const dispatch = useDispatch();
     const history = useHistory();
+    const dispatch = useDispatch();
+    const location = useLocation();
     const {linkData, currentCrf, currentIndex} = useSelector(state => state.viewer);
     const {languages, queryParams, queryParams: { hideHeader, hideFooter, displayInfoHeader, crfIndex }} = useSelector(state => state.app);
-    const location = useLocation();
 
     useEffect(() => {
         dispatch(getLinkData(location.pathname, history));
@@ -56,8 +55,7 @@ export default function Viewer() {
             {linkData && languages && currentCrf
                 ? <>
                     {displayInfoHeader === 'true' && <InfoString { ...linkData} currentIndex={currentIndex}/>}
-                    <FlaskCRF { ...currentCrf}/>
-                    <FormControls />
+                    <FlaskCRF { ...currentCrf} />
                 </>
                 : <Preloader />
             }

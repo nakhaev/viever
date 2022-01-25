@@ -1,6 +1,6 @@
 import React from 'react';
 import './InfoString.scss';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
 const InfoString = props => {
     const {translate, fieldLocal} = useTranslate();

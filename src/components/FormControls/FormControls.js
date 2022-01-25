@@ -3,9 +3,10 @@ import './FormControls.scss'
 import {Button, Container, Grid, Checkbox, FormControlLabel} from '@mui/material';
 import {setQueryParams} from '../../appSlice';
 import {useDispatch, useSelector} from 'react-redux';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
-const FormControls = () => {
+const FormControls = props => {
+    const {formik} = props;
     const {translate} = useTranslate();
     const dispatch = useDispatch();
     const {currentIndex, linkData} = useSelector(state => state.viewer);
@@ -33,6 +34,7 @@ const FormControls = () => {
 
     const saveHandler = () => {
         console.log('Save Handler');
+        formik.handleSubmit();
     }
 
     const nextHandler = () => {

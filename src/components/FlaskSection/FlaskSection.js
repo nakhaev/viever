@@ -3,11 +3,12 @@ import './FlaskSection.scss';
 import ViewerWrapper from '../ViewerWrapper/ViewerWrapper';
 import ResponsiveItem from '../ResponsiveItem/ResponsiveItem';
 import FlaskCard from '../FlaskCard/FlaskCard';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
 const FlaskSection = props => {
     const {fieldLocal} = useTranslate();
-    const {name, description, items} = props;
+    const {name, description, items, layout_type, layout_columns, formik} = props;
+
     return (
         <React.Fragment>
             <div style={{textAlign: 'center'}}>
@@ -17,8 +18,8 @@ const FlaskSection = props => {
             <ViewerWrapper spacing={2} mode="container">
                 {items.map(item => {
                     return (
-                        <ResponsiveItem layoutType={0} columns={5} key={item.id}>
-                            <FlaskCard data={item} />
+                        <ResponsiveItem layoutType={layout_type} columns={layout_columns} key={item.id}>
+                            <FlaskCard data={item} layoutType={layout_type} formik={formik}/>
                         </ResponsiveItem>
                     )
                 })}

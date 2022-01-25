@@ -8,7 +8,7 @@ import {setLanguage, setDirection} from '../../appSlice';
 import './LanguageSelector.scss';
 import {useHistory} from 'react-router-dom';
 import qs from 'qs';
-import useTranslate from '../../Hooks/useTranslate';
+import useTranslate from '../../hooks/useTranslate';
 
 const LanguageSelector = () => {
     const {translate} = useTranslate();
