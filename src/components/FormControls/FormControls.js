@@ -1,9 +1,11 @@
 import React from 'react';
 import './FormControls.scss'
-import {Button, Container, Grid, Checkbox, FormControlLabel} from '@mui/material';
+import {Button, Container, Grid, Checkbox, FormControlLabel, IconButton} from '@mui/material';
 import {setQueryParams} from '../../appSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import useTranslate from '../../hooks/useTranslate';
+import ReportGmailerrorredSharpIcon from '@mui/icons-material/ReportGmailerrorredSharp';
+import _ from 'lodash';
 
 const FormControls = props => {
     const {formik} = props;
@@ -11,6 +13,10 @@ const FormControls = props => {
     const dispatch = useDispatch();
     const {currentIndex, linkData} = useSelector(state => state.viewer);
     const {queryParams} = useSelector(state => state.app);
+
+    const checkErrors = (errors) => {
+        return errors && !_.isEmpty(errors);
+    }
 
     const styles = {
         formControls: {
@@ -22,6 +28,10 @@ const FormControls = props => {
         },
         control: {
             margin: '0 2px 4px'
+        },
+        errorIcon: {
+            width: '32px',
+            height: '32px'
         }
     }
 
@@ -56,15 +66,24 @@ const FormControls = props => {
         console.log('Change Handler');
     }
 
+    const handleShowErrors = () => {
+        console.log('Show Errors Handler');
+    }
+
     return (
         <Container style={styles.formControls}>
             <Grid container>
                 <Grid item xs={12} style={styles.buttonWrapper}>
-                    <Button variant="contained" color="success" onClick={backHandler} style={styles.control}> { translate('GLOBAL$BACK') } </Button>
-                    <Button variant="contained" color="success" onClick={saveHandler} style={styles.control}> { translate('GLOBAL$SAVE') } </Button>
-                    <Button variant="contained" color="success" onClick={nextHandler} style={styles.control}> { translate('GLOBAL$NEXT') } </Button>
-                    <Button variant="contained" color="success" onClick={finishHandler} style={styles.control}> { translate('GLOBAL$FINISH') } </Button>
-                    <Button variant="contained" color="primary" onClick={oneMoreHandler} style={styles.control}> { translate('GLOBAL$ONE_MORE') } </Button>
+                    {checkErrors(formik.errors)
+                        && <IconButton color="error" aria-label="errors" component="span" onClick={handleShowErrors} title={'Show Errors'}>
+                                <ReportGmailerrorredSharpIcon style={styles.errorIcon}/>
+                            </IconButton>
+                    }
+                    <Button variant="contained" color="success" disabled={checkErrors(formik.errors)} onClick={backHandler} style={styles.control}> { translate('GLOBAL$BACK') } </Button>
+                    <Button variant="contained" color="success" disabled={checkErrors(formik.errors)} onClick={saveHandler} style={styles.control}> { translate('GLOBAL$SAVE') } </Button>
+                    <Button variant="contained" color="success" disabled={checkErrors(formik.errors)} onClick={nextHandler} style={styles.control}> { translate('GLOBAL$NEXT') } </Button>
+                    <Button variant="contained" color="success" disabled={checkErrors(formik.errors)} onClick={finishHandler} style={styles.control}> { translate('GLOBAL$FINISH') } </Button>
+                    <Button variant="contained" color="primary" disabled={checkErrors(formik.errors)} onClick={oneMoreHandler} style={styles.control}> { translate('GLOBAL$ONE_MORE') } </Button>
                 </Grid>
                 <Grid item xs={12}>
                     <FormControlLabel

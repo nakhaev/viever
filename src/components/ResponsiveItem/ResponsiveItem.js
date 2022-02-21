@@ -6,7 +6,7 @@ const ResponsiveItem = (props) => {
     const { layoutType, columns, children } = props;
     let options = { xs: 12 };
     let style = {}
-    if(layoutType === 0) style = {maxWidth: '600px', margin: '0 auto'};
+    if(layoutType === 0) style = {maxWidth: '900px', margin: '0 auto'};
     const fiveColumnStyle = {maxWidth: '20%', boxSizing: 'border-box', margin: 0, flexDirection: 'row', flexBasis: '20%', flexGrow: 0};
     const defaultBreakPoints = {xs: 12, sm: 6, md: 4, lg: 3, sx: {maxWidth: { xl: '20%' }}};
 
