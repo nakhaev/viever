@@ -54,7 +54,6 @@ function getValidate(crf) {
             return section;
         });
     }
-    console.log('shape', shape);
 
     // shape = {
     //     NAME1532_0216154807: Yup.string()

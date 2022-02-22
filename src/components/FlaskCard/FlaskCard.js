@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import useTranslate from '../../hooks/useTranslate';
-import {TextField} from '@mui/material';
+import FormItem from '../FormComponents/FormItem';
 
 const FlaskCard = (props) => {
     const {data, formik, layoutType} = props;
@@ -19,18 +19,7 @@ const FlaskCard = (props) => {
             <CardActions> actions </CardActions>
             <CardContent>
                 <p>{fieldLocal(data.title)}</p>
-                <TextField
-                    style={{width: '100%'}}
-                    id={data.name}
-                    name={data.name}
-                    label={fieldLocal(data.label)}
-                    type={data.type.toLowerCase()}
-                    onChange={formik.handleChange}
-                    value={formik.values[data.name]}
-                    disabled={data.adds.disabled}
-                    placeholder={data.placeholder}
-                    variant="standard"
-                        />
+                <FormItem { ...data } formik={formik} />
                 <span className="help-text">{fieldLocal(data.adds.help)}</span>
                 {/*<p>{JSON.stringify(data, null, 2)}</p>*/}
             </CardContent>
