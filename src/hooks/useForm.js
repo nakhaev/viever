@@ -9,7 +9,14 @@ function getInitial(crf) {
         sections.map(section => {
             const items = section.items ? section.items : [];
             items.map(item => {
-                values[item.name] = item.value && item.value[0] ? item.value[0] : '';
+                switch (item.type) {
+                    default: values[item.name] = item.value && item.value[0] ? item.value[0] : '';
+                        break;
+                    // case itemTypes.SINGLE_SELECT:
+                    // case itemTypes.MULTIPLE_SELECT: values[item.name] = item.value ? item.value : [];
+                    //     break;
+
+                }
                 return item;
             })
             return section;
