@@ -15,20 +15,7 @@ import {useDispatch, useSelector} from "react-redux";
 import ReduxToastr from 'react-redux-toastr';
 import qs from 'qs';
 import _ from 'lodash';
-
-const test = {
-    mode: 'edit',
-    crfIndex: 0,
-    lang: 'en',
-    languageSync: true,
-    autoClose: false,
-    displayInfoHeader: true,
-    hideBackButton: false,
-    hideHeader: false,
-    hideFooter: false,
-    callbackURL: 'http://local-app.flaskdata.io',
-    authToken: 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbzhLV3M4VkNNWEN0dlRRVENUUWxOZGo5T1Z5aFdzTCIsImV4cCI6MTY0MzEyODEzMjE0MiwiaWF0IjoxNjQzMTA2NTMyfQ.b0OkeYP-KEgM5ftTG2JPlkhH9vkUFhVFD5yrYFZKb-Vm20RQ5KZvy51HxEkIyVIe',
-}
+import config from './config'
 
 const reduxTostrConfig = {
     timeOut: 5000,
@@ -121,7 +108,7 @@ function App() {
             <Switch>
                 {/*<Route path={'/'} exact component={IncorrectLink} />*/}
 
-                <Route path={'/'} exact> <Redirect to={'/FED_1Wsf5fXfuqdW?'+qs.stringify(test)} /> </Route>
+                <Route path={'/'} exact> <Redirect to={`/${config.testEvent || ''}?`+qs.stringify(config.testData || {})} /> </Route>
 
                 <Route path={'/incorrect-link'} exact component={IncorrectLink} />
                 <Route path={'/log'} exact component={Log} />

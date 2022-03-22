@@ -32,6 +32,7 @@
   },
   "scripts": {
     "start-local": "export REACT_APP_ENV=local&&react-scripts start",
+    "start-dev": "export REACT_APP_ENV=development&&react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
